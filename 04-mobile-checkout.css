@@ -1,0 +1,119 @@
+/* style.css - MOBILE CHECKOUT THEME */
+
+:root {
+    --font-family-base: 'Inter', sans-serif;
+    --color-primary: #0d6efd;
+}
+
+body {
+    font-family: var(--font-family-base);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- KHUNG MOBILE --- */
+.mobile-container {
+    width: 100%;
+    max-width: 414px;
+    /* Chuẩn iPhone Max */
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Chống cuộn toàn trang */
+}
+
+/* Phần nội dung có thể cuộn, chừa chỗ cho footer */
+.content-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+/* --- UI COMPONENTS --- */
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.product-img {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border: 1px solid #eaeaea;
+}
+
+/* --- PAYMENT METHOD STYLING (CSS Only) --- */
+.payment-option {
+    cursor: pointer;
+    display: block;
+}
+
+/* Ẩn nút radio mặc định */
+.payment-radio {
+    display: none;
+}
+
+.payment-content {
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+/* Ẩn icon dấu tick theo mặc định */
+.payment-content .check-icon {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+}
+
+/* KHI RADIO ĐƯỢC CHỌN (Checked) */
+.payment-radio:checked+.payment-content {
+    border-color: var(--color-primary) !important;
+    background-color: rgba(13, 110, 253, 0.05);
+    /* Nền xanh lam cực nhạt */
+}
+
+/* Hiện dấu tick khi được chọn */
+.payment-radio:checked+.payment-content .check-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- FOOTER --- */
+.checkout-footer {
+    z-index: 10;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    /* Tối ưu cho tai thỏ/thanh vuốt iPhone */
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border: none;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    transition: transform 0.1s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Responsive: Ẩn nền xám khi mở trên mobile thật */
+@media (max-width: 414px) {
+    body {
+        background-color: #f8f9fa !important;
+    }
+
+    .mobile-container {
+        box-shadow: none !important;
+    }
+}
